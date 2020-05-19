@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    username: root
+    password: 1
+    url: jdbc:mysql://localhost:3306/myblog?serverTimezone=UTC&useUnicode=true&characterEncodeing=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      stat-view-servlet:
+        login-username: root
+        login-password: 1
+
+      username: root
+      password: 1
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
+  thymeleaf:
+
+    mode: HTML
+    encoding: utf-8
+    # \u7981\u7528\u7F13\u5B58
+    cache: false
+  mvc:
+    format:
+      date: dd/MM/yyyy
+
+logging:
+  level:
+   com.me.blog: debug
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.me.blog.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+
+
